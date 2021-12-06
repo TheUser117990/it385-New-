@@ -1,0 +1,16 @@
+---
+
+- name: MariaDB
+  hosts: db
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: install mariadb
+      apt:
+        name:
+          - mariadb-server
+        state: latest
+    - name: start mariadb
+      service:
+        name: mariadb
+        enabled: true

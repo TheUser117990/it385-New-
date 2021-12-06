@@ -1,0 +1,40 @@
+
+---
+
+- hosts: mysql
+
+  vars:
+
+    mysql_root_password: Password01 
+
+  tasks:
+
+  - name: mysql_install 
+
+    apt: name={{ item }} update_cache=yes cache_valid_time=3600 state=present
+
+    sudo: yes
+
+    with_items:
+
+    - python-mysqldb
+
+    - mysql-server
+
+  #- name: copy cnf
+
+  #  copy: src=.my.cnf dest=~/.my.cnf owner=ubuntu mode=0644
+
+  #  sudo: yes
+
+  - name: Start the MySQL service
+
+    sudo: yes
+
+    service: 
+
+      name: mysql 
+
+      state: started
+
+      enabled: true

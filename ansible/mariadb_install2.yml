@@ -1,0 +1,13 @@
+
+- hosts: db
+  tasks:
+  - name: install mariadb
+    become: yes
+    apt:
+      name: mariadb-server
+      state: present
+  - name: make db run
+    become: yes
+    service:
+      name: mariadb
+      state: started

@@ -1,0 +1,6 @@
+
+- hosts: web
+
+  roles:
+  - base_config
+
