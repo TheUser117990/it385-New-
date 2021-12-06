@@ -1,0 +1,11 @@
+---
+# tasks file for dbbase_config
+- name: Run the equivalent of "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Maintain a consistent /etc/hostfile
+  become: yes
+  copy:
+    src: /etc/hosts #ansible m/c
+    dest: /etc/hosts

@@ -1,0 +1,5 @@
+- hosts: db
+
+  roles:
+  - dbbase_config
+  - dbrole_config
